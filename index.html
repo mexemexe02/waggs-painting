@@ -7,7 +7,8 @@
   <title>Wagg's Painting | Barrie ON — 5-Star Painting Services</title>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">400;500;600;700;800&display=swap');
 
     /* ========== RESET & BASE ========== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -209,7 +210,7 @@
       border: 1px solid rgba(255,255,255,0.06); position: relative; overflow: hidden;
     }
     .about-image::before {
-      content: '🏠';
+      content: '015'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
       font-size: 6rem; opacity: 0.15;
     }
     .about-image .overlay-text {
@@ -377,37 +378,37 @@
       <div class="services-grid">
 
         <div class="service-card">
-          <div class="service-icon">🏠</div>
+          <div class="service-icon"><i class="fa-solid fa-house"></i></div>
           <h3>Exterior Painting</h3>
           <p>Complete exterior painting for homes and commercial properties. We handle siding, trim, soffits, and fascia — using weather-resistant, premium-grade paints.</p>
         </div>
 
         <div class="service-card">
-          <div class="service-icon">🧱</div>
+          <div class="service-icon"><i class="fa-solid fa-cubes"></i></div>
           <h3>Drywall Repairs</h3>
           <p>Expert drywall patching, crack repair, and full drywall installation. Seamless finishes ready for paint — from small holes to full wall replacements.</p>
         </div>
 
         <div class="service-card">
-          <div class="service-icon">🏗️</div>
+          <div class="service-icon"><i class="fa-solid fa-building"></i></div>
           <h3>Popcorn Ceiling Removal</h3>
           <p>Modernize your ceilings. We safely remove outdated popcorn texture and deliver a smooth, fresh finish that transforms any room.</p>
         </div>
 
         <div class="service-card">
-          <div class="service-icon">🧱</div>
+          <div class="service-icon"><i class="fa-solid fa-cubes"></i></div>
           <h3>Brick Painting</h3>
           <p>Give your brick exterior or interior a stunning new look. Properly prepped, primed, and painted with products designed for masonry surfaces.</p>
         </div>
 
         <div class="service-card">
-          <div class="service-icon">🛁</div>
+          <div class="service-icon"><i class="fa-solid fa-bath"></i></div>
           <h3>Bathroom Painting</h3>
           <p>Bathrooms demand moisture-resistant finishes. We use mildew-resistant paints and proper prep to ensure your bathroom looks fresh for years.</p>
         </div>
 
         <div class="service-card">
-          <div class="service-icon">⬆️</div>
+          <div class="service-icon"><i class="fa-solid fa-arrow-up"></i></div>
           <h3>Ceiling Painting</h3>
           <p>Flawless ceiling painting that brightens your entire space. From flat whites to accent colours — we cover every square inch with precision.</p>
         </div>
@@ -438,7 +439,7 @@
               <div class="label">Satisfaction guaranteed on every project — interior &amp; exterior</div>
             </div>
             <div class="highlight-item">
-              <div class="num">🏠</div>
+              <div class="num"><i class="fa-solid fa-house"></i></div>
               <div class="label">Residential &amp; commercial painting specialists</div>
             </div>
           </div>
@@ -499,28 +500,28 @@
 
           <ul class="contact-details">
             <li>
-              <span class="icon">📍</span>
+              <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
               <div>
                 <strong>Address</strong>
                 33 River Ridge Rd<br>Barrie, ON L4N 7G2
               </div>
             </li>
             <li>
-              <span class="icon">📞</span>
+              <span class="icon"><i class="fa-solid fa-phone"></i></span>
               <div>
                 <strong>Phone</strong>
                 <a href="tel:+17051234567">(705) 123-4567</a>
               </div>
             </li>
             <li>
-              <span class="icon">✉️</span>
+              <span class="icon"><i class="fa-solid fa-envelope"></i></span>
               <div>
                 <strong>Email</strong>
                 <a href="mailto:info@waggspainting.ca">info@waggspainting.ca</a>
               </div>
             </li>
             <li>
-              <span class="icon">🕐</span>
+              <span class="icon"><i class="fa-solid fa-clock"></i></span>
               <div>
                 <strong>Hours</strong>
                 Mon–Fri: 7:00 AM – 6:00 PM<br>Sat: 8:00 AM – 4:00 PM
@@ -631,7 +632,7 @@
       const feedback = document.getElementById('formFeedback');
       feedback.style.display = 'block';
       feedback.style.color = 'var(--orange)';
-      feedback.textContent = '✓ Thanks! This is a demo form — we\'ll be in touch shortly.';
+      feedback.textContent = '<i class="fa-solid fa-check"></i> Thanks! This is a demo form — we\'ll be in touch shortly.';
       e.target.reset();
       setTimeout(() => { feedback.style.display = 'none'; }, 5000);
     }
