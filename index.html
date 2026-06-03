@@ -1,657 +1,938 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Wagg's Painting — Barrie's trusted 5-star painting company. Exterior, interior, drywall repairs, popcorn ceiling removal, and more. Serving Simcoe County.">
-  <title>Wagg's Painting | Barrie ON — 5-Star Painting Services</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wagg's Painting | 5-Star Painters in Barrie, ON</title>
+    <meta name="description" content="Barrie's trusted 5-star painting company. Expert exterior & interior painting, drywall repairs, popcorn ceiling removal, and more. Serving Barrie and surrounding areas with quality craftsmanship.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --charcoal: #1E1E1E;
+            --orange: #F47920;
+            --orange-hover: #e06810;
+            --orange-light: #f6914a;
+            --white: #ffffff;
+            --off-white: #f5f5f5;
+            --mid-gray: #a0a0a0;
+            --light-gray: #e0e0e0;
+            --card-bg: #2a2a2a;
+            --dark-bg: #151515;
+            --border-subtle: rgba(255,255,255,0.08);
+        }
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">400;500;600;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* ========== RESET & BASE ========== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
 
-    :root {
-      --charcoal: #1E1E1E;
-      --charcoal-light: #2C2C2C;
-      --charcoal-mid: #3A3A3A;
-      --orange: #F47920;
-      --orange-hover: #E06810;
-      --orange-glow: rgba(244, 121, 32, 0.3);
-      --white: #F5F5F5;
-      --white-pure: #FFFFFF;
-      --gray: #A0A0A0;
-      --gray-light: #C0C0C0;
-      --font-display: 'Bebas Neue', sans-serif;
-      --font-body: 'Inter', sans-serif;
-      --max-width: 1200px;
-      --transition: 0.25s ease;
-    }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--charcoal);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      background: var(--charcoal);
-      color: var(--white);
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 16px 40px;
+            background: rgba(30, 30, 30, 0.94);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(244,121,32,0.12);
+            transition: padding 0.3s;
+        }
 
-    h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0.03em; }
-    h2 { font-size: 2.8rem; text-transform: uppercase; margin-bottom: 1rem; }
-    h2 span { color: var(--orange); }
+        nav.scrolled { padding: 10px 40px; }
 
-    section { padding: 5rem 2rem; }
-    .container { max-width: var(--max-width); margin: 0 auto; }
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    a { color: var(--orange); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+        .nav-logo span { color: var(--orange); }
 
-    /* ========== NAVIGATION ========== */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(30, 30, 30, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding: 0 2rem;
-    }
-    .nav-inner {
-      max-width: var(--max-width); margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 70px;
-    }
-    .nav-logo {
-      font-family: var(--font-display); font-size: 1.8rem;
-      color: var(--orange); letter-spacing: 0.05em;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .nav-logo .star { font-size: 1.2rem; color: var(--orange); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: var(--white); font-weight: 500; font-size: 0.9rem;
-      text-transform: uppercase; letter-spacing: 0.06em;
-      transition: color var(--transition); text-decoration: none;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--orange); }
-    .nav-cta a {
-      background: var(--orange); color: var(--white-pure); padding: 0.55rem 1.4rem;
-      border-radius: 4px; font-weight: 600; font-size: 0.85rem;
-      text-transform: uppercase; letter-spacing: 0.06em;
-      transition: background var(--transition); text-decoration: none;
-    }
-    .nav-cta a:hover { background: var(--orange-hover); text-decoration: none; }
+        .nav-logo .logo-icon {
+            width: 34px;
+            height: 34px;
+            background: var(--orange);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: var(--white);
+        }
 
-    /* Mobile nav toggle */
-    .nav-toggle { display: none; background: none; border: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
 
-    /* ========== HERO ========== */
-    .hero {
-      position: relative; min-height: 100vh; display: flex; align-items: center;
-      background: linear-gradient(135deg, #1A1A1A 0%, #252525 40%, #1E1E1E 100%);
-            background-image: url("images/hero.jpg");
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: multiply;
-            box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.38);
-      padding-top: 70px; overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; top: -80px; right: -80px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute; bottom: -60px; left: -60px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(244,121,32,0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-content { position: relative; z-index: 2; z-index: 2; max-width: 750px; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(244, 121, 32, 0.15); border: 1px solid rgba(244, 121, 32, 0.3);
-      padding: 0.45rem 1rem; border-radius: 50px;
-      font-size: 0.85rem; font-weight: 500; color: var(--orange);
-      margin-bottom: 1.5rem; letter-spacing: 0.04em;
-    }
-    .hero-badge .stars { color: #FFB347; font-size: 0.9rem; letter-spacing: 2px; }
-    .hero h1 {
-      font-size: 4.2rem; line-height: 1.08; text-transform: uppercase;
-      margin-bottom: 1.2rem;
-    
-            text-shadow: 0 2px 16px rgba(0,0,0,0.75), 0 1px 4px rgba(0,0,0,0.5);}
-    .hero h1 .accent { color: var(--orange); }
-    .hero p {
-      font-size: 1.2rem; color: var(--gray-light); max-width: 520px;
-      margin-bottom: 2.5rem; font-weight: 300;
-    
-            text-shadow: 0 1px 8px rgba(0,0,0,0.7);}
-    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn {
-      display: inline-block; padding: 0.85rem 2rem; border-radius: 4px;
-      font-weight: 600; font-size: 0.95rem; text-transform: uppercase;
-      letter-spacing: 0.05em; cursor: pointer; text-decoration: none;
-      transition: all var(--transition); border: none; font-family: var(--font-body);
-    }
-    .btn-primary { background: var(--orange); color: var(--white-pure); }
-    .btn-primary:hover { background: var(--orange-hover); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(244,121,32,0.35); text-decoration: none; }
-    .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
-    .btn-outline:hover { background: var(--white); color: var(--charcoal); text-decoration: none; }
+        .nav-links a {
+            color: var(--mid-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
 
-    .hero-visual {
-      position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-      width: 42%; max-width: 550px; opacity: 0.35; pointer-events: none;
-    }
-    .hero-visual img { width: 100%; filter: brightness(0.7); }
+        .nav-links a:hover { color: var(--orange); }
 
-    /* ========== SERVICES ========== */
-    #services {
-      background: var(--charcoal-light);
-      text-align: center;
-    }
-    .services-subtitle { color: var(--gray); max-width: 500px; margin: 0 auto 3.5rem; }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .service-card {
-      background: var(--charcoal);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 8px; padding: 2.5rem 2rem;
-      text-align: left; transition: all var(--transition);
-      position: relative; overflow: hidden;
-    }
-    .service-card::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-      height: 3px; background: var(--orange);
-      transform: scaleX(0); transition: transform var(--transition);
-    }
-    .service-card:hover { border-color: rgba(244,121,32,0.3); transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
-    .service-card:hover::after { transform: scaleX(1); }
-    .service-icon {
-      width: 56px; height: 56px; border-radius: 12px;
-      background: rgba(244,121,32,0.12); display: flex; align-items: center; justify-content: center;
-      font-size: 1.6rem; margin-bottom: 1.2rem;
-    }
-    .service-card h3 { font-size: 1.5rem; margin-bottom: 0.6rem; font-family: var(--font-display); }
-    .service-card p { color: var(--gray); font-size: 0.95rem; }
+        .nav-cta {
+            background: var(--orange);
+            color: var(--white) !important;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 600 !important;
+            transition: background 0.3s, transform 0.2s !important;
+        }
 
-    /* ========== ABOUT ========== */
-    #about { background: var(--charcoal); }
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
-      align-items: center;
-    }
-    .about-text h2 { margin-bottom: 1.5rem; }
-    .about-text p { color: var(--gray-light); margin-bottom: 1.2rem; font-size: 1.05rem; }
-    .about-highlights {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
-      margin-top: 2rem;
-    }
-    .highlight-item {
-      display: flex; align-items: flex-start; gap: 0.8rem;
-      padding: 1rem; background: var(--charcoal-light); border-radius: 6px;
-      border-left: 3px solid var(--orange);
-    }
-    .highlight-item .num {
-      font-family: var(--font-display); font-size: 1.8rem; color: var(--orange);
-      line-height: 1;
-    }
-    .highlight-item .label { font-size: 0.85rem; color: var(--gray-light); }
-    .about-image {
-      background: linear-gradient(135deg, var(--charcoal-light), var(--charcoal-mid));
-      border-radius: 12px; height: 400px; display: flex; align-items: center; justify-content: center;
-      border: 1px solid rgba(255,255,255,0.06); position: relative; overflow: hidden;
-    }
-    .about-image::before {
-      content: '015'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
-      font-size: 6rem; opacity: 0.15;
-    }
-    .about-image .overlay-text {
-      position: absolute; bottom: 1.5rem; right: 1.5rem;
-      font-family: var(--font-display); font-size: 1.4rem;
-      color: var(--orange); letter-spacing: 0.05em;
-    }
+        .nav-cta:hover {
+            background: var(--orange-hover);
+            transform: translateY(-1px);
+        }
 
-    /* ========== REVIEWS ========== */
-    #reviews { background: var(--charcoal-light); text-align: center; }
-    .reviews-badge {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      margin-bottom: 2.5rem; font-size: 1.2rem;
-    }
-    .reviews-badge .big-stars {
-      color: #FFB347; font-size: 2.2rem; letter-spacing: 3px;
-    }
-    .reviews-badge .score {
-      font-family: var(--font-display); font-size: 3rem; color: var(--orange);
-      line-height: 1;
-    }
-    .reviews-source {
-      font-size: 0.9rem; color: var(--gray);
-    }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      text-align: left;
-    }
-    .testimonial-card {
-      background: var(--charcoal);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 8px; padding: 2rem;
-      position: relative;
-    }
-    .testimonial-card .quote-mark {
-      font-size: 3rem; color: var(--orange); line-height: 1; margin-bottom: 0.5rem;
-      font-family: Georgia, serif;
-    }
-    .testimonial-card .quote { color: var(--white); font-size: 1rem; margin-bottom: 1.2rem; font-style: italic; }
-    .testimonial-card .author { color: var(--orange); font-weight: 600; font-size: 0.9rem; }
-    .testimonial-card .author-location { color: var(--gray); font-size: 0.8rem; }
-    .testimonial-card .stars-row { color: #FFB347; letter-spacing: 2px; margin-bottom: 0.6rem; }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
 
-    /* ========== CONTACT ========== */
-    #contact { background: var(--charcoal); }
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
-    }
-    .contact-info h2 { margin-bottom: 1.5rem; }
-    .contact-details { list-style: none; margin-bottom: 2rem; }
-    .contact-details li {
-      display: flex; align-items: flex-start; gap: 1rem;
-      padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
-      color: var(--gray-light);
-    }
-    .contact-details .icon { color: var(--orange); font-size: 1.2rem; flex-shrink: 0; }
-    .contact-details strong { color: var(--white); display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.15rem; }
+        .hamburger span {
+            width: 26px;
+            height: 2.5px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
 
-    .contact-form { background: var(--charcoal-light); padding: 2.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06); }
-    .contact-form h3 { font-size: 1.6rem; margin-bottom: 1.5rem; }
-    .form-group { margin-bottom: 1.2rem; }
-    .form-group label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-light); margin-bottom: 0.4rem; font-weight: 500; }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%; padding: 0.75rem 1rem;
-      background: var(--charcoal); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 4px; color: var(--white); font-family: var(--font-body);
-      font-size: 0.95rem; transition: border-color var(--transition);
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none; border-color: var(--orange);
-    }
-    .form-group textarea { min-height: 120px; resize: vertical; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .contact-form button { width: 100%; margin-top: 0.5rem; }
+        /* HERO */
+        .hero {
+            height: 100vh;
+            min-height: 650px;
+            background: linear-gradient(135deg, rgba(30,30,30,0.88) 0%, rgba(30,30,30,0.6) 35%, rgba(30,30,30,0.72) 100%),
+                        url('https://images.unsplash.com/photo-1564013799919-ab600027f28d?w=1600&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
 
-    /* ========== FOOTER ========== */
-    footer {
-      background: #151515; padding: 3rem 2rem 2rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      text-align: center;
-    }
-    .footer-grid {
-      max-width: var(--max-width); margin: 0 auto 2rem;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem; text-align: left;
-    }
-    .footer-col h4 { color: var(--orange); font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1rem; letter-spacing: 0.04em; }
-    .footer-col p, .footer-col a { color: var(--gray); font-size: 0.9rem; display: block; line-height: 1.8; }
-    .footer-col a:hover { color: var(--orange); text-decoration: none; }
-    .footer-bottom { color: var(--gray); font-size: 0.8rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.04); }
-    .footer-bottom .accent { color: var(--orange); }
+        .hero-badge {
+            background: rgba(244,121,32,0.16);
+            border: 1px solid rgba(244,121,32,0.3);
+            color: var(--orange-light);
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease-out;
+        }
 
-    /* ========== RESPONSIVE ========== */
-    @media (max-width: 900px) {
-      h2 { font-size: 2.2rem; }
-      .hero h1 { font-size: 2.8rem; }
-      .hero-visual { display: none; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-image { height: 250px; }
-      .form-row { grid-template-columns: 1fr; }
-    }
+        .hero h1 {
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 800;
+            line-height: 1.15;
+            max-width: 800px;
+            animation: fadeInUp 0.8s ease-out 0.15s both;
+        }
 
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-toggle { display: block; }
-      .nav-links.mobile-open {
-        display: flex; flex-direction: column; position: absolute;
-        top: 70px; left: 0; right: 0; background: rgba(30,30,30,0.98);
-        padding: 1.5rem 2rem; gap: 1rem;
-        border-bottom: 1px solid rgba(255,255,255,0.06);
-      }
-      section { padding: 3.5rem 1.2rem; }
-      .hero { min-height: auto; padding: 8rem 1.2rem 5rem; }
-      .hero h1 { font-size: 2.4rem; }
-      .hero p { font-size: 1rem; }
-      .about-highlights { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+        .hero h1 span { color: var(--orange); }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--mid-gray);
+            max-width: 550px;
+            margin: 20px 0 32px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out 0.45s both;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(244,121,32,0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--charcoal);
+            transform: translateY(-2px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            color: var(--orange);
+            font-size: 1.8rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* SECTIONS */
+        section { padding: 90px 20px; }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 span { color: var(--orange); }
+
+        .section-header p {
+            color: var(--mid-gray);
+            max-width: 550px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* ABOUT */
+        #about {
+            background: var(--dark-bg);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .about-image .badge-overlay {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: var(--orange);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-content h2 span { color: var(--orange); }
+
+        .about-content p {
+            color: var(--mid-gray);
+            margin-bottom: 16px;
+            font-size: 1.02rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        .highlight {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .highlight i {
+            color: var(--orange);
+            font-size: 1.1rem;
+        }
+
+        /* SERVICES */
+        #services { background: var(--charcoal); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+        }
+
+        .service-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-card-body {
+            padding: 24px;
+        }
+
+        .service-card-body i {
+            color: var(--orange);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .service-card-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .service-card-body p {
+            color: var(--mid-gray);
+            font-size: 0.95rem;
+        }
+
+        /* REVIEWS */
+        #reviews {
+            background: var(--dark-bg);
+        }
+
+        .reviews-summary {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .reviews-summary .big-stars {
+            color: var(--orange);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .reviews-summary .rating-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .reviews-summary .rating-label {
+            color: var(--mid-gray);
+            font-size: 1rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 28px;
+            border: 1px solid var(--border-subtle);
+            position: relative;
+        }
+
+        .review-card .stars {
+            color: var(--orange);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+
+        .review-card p {
+            color: var(--mid-gray);
+            font-style: italic;
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 0.95rem;
+        }
+
+        .review-author span {
+            color: var(--orange);
+            font-weight: 400;
+            font-size: 0.85rem;
+        }
+
+        /* CONTACT */
+        #contact { background: var(--charcoal); }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .contact-info h2 span { color: var(--orange); }
+
+        .contact-info > p {
+            color: var(--mid-gray);
+            margin-bottom: 30px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .contact-detail i {
+            width: 44px;
+            height: 44px;
+            background: rgba(244,121,32,0.12);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--orange);
+            font-size: 1.1rem;
+        }
+
+        .contact-detail .label {
+            font-size: 0.8rem;
+            color: var(--mid-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-detail .value {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            padding: 36px;
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .contact-form h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--mid-gray);
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 13px 16px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--orange);
+        }
+
+        .form-group textarea { resize: vertical; min-height: 110px; }
+
+        .form-group select option { background: var(--card-bg); color: var(--white); }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--orange);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .form-submit:hover { background: var(--orange-hover); }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark-bg);
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        footer p { color: var(--mid-gray); font-size: 0.9rem; }
+
+        footer .footer-social {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        footer .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--mid-gray);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        footer .footer-social a:hover {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image { max-width: 400px; margin: 0 auto; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 14px 20px; }
+            nav.scrolled { padding: 10px 20px; }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                max-width: 320px;
+                height: 100vh;
+                background: var(--charcoal);
+                flex-direction: column;
+                padding: 80px 30px;
+                gap: 24px;
+                transition: right 0.35s ease;
+                border-left: 1px solid rgba(244,121,32,0.12);
+            }
+
+            .nav-links.active { right: 0; }
+
+            .hamburger { display: flex; z-index: 1001; }
+
+            .hero { min-height: 600px; }
+
+            .hero h1 { font-size: 2.2rem; }
+
+            .services-grid { grid-template-columns: 1fr; }
+
+            .reviews-grid { grid-template-columns: 1fr; }
+
+            .about-highlights { grid-template-columns: 1fr; }
+
+            .contact-form { padding: 24px; }
+
+            .hero-buttons { flex-direction: column; align-items: center; }
+
+            .btn { width: 100%; justify-content: center; max-width: 280px; }
+        }
+
+        @media (max-width: 480px) {
+            section { padding: 60px 16px; }
+        }
+    </style>
 </head>
 <body>
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+        <a href="#" class="nav-logo">
+            <div class="logo-icon"><i class="fa-solid fa-paint-roller"></i></div>
+            Wagg's <span>Painting</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about" onclick="closeNav()">About</a></li>
+            <li><a href="#services" onclick="closeNav()">Services</a></li>
+            <li><a href="#reviews" onclick="closeNav()">Reviews</a></li>
+            <li><a href="#contact" class="nav-cta" onclick="closeNav()">Free Estimate</a></li>
+        </ul>
+        <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
 
-  <!-- ==================== NAVIGATION ==================== -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">WAGG'S <span class="star">★</span></a>
-      <button class="nav-toggle" aria-label="Toggle menu" onclick="toggleNav()">☰</button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#services" onclick="closeNav()">Services</a></li>
-        <li><a href="#about" onclick="closeNav()">About</a></li>
-        <li><a href="#reviews" onclick="closeNav()">Reviews</a></li>
-        <li><a href="#contact" onclick="closeNav()">Contact</a></li>
-      </ul>
-      <div class="nav-cta"><a href="#contact">Get a Quote</a></div>
-    </div>
-  </nav>
-
-  <!-- ==================== HERO ==================== -->
-  <section class="hero" id="home">
-    <div class="container hero-content">
-      <div class="hero-badge">
-        <span class="stars">★★★★★</span> 5.0 — YellowPages Rated
-      </div>
-      <h1>Transforming Homes,<br><span class="accent">One Brush</span> at a Time</h1>
-      <p>Barrie's trusted painting company. From exterior makeovers to interior transformations — we deliver premium craftsmanship across Simcoe County.</p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn btn-primary">Get Your Free Estimate</a>
-        <a href="#services" class="btn btn-outline">Our Services</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== SERVICES ==================== -->
-  <section id="services">
-    <div class="container">
-      <h2>Our <span>Services</span></h2>
-      <p class="services-subtitle">Professional painting and repair solutions for every surface in your home.</p>
-      <div class="services-grid">
-
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-house"></i></div>
-          <h3>Exterior Painting</h3>
-          <p>Complete exterior painting for homes and commercial properties. We handle siding, trim, soffits, and fascia — using weather-resistant, premium-grade paints.</p>
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-badge">5.0 <i class="fa-solid fa-star" style="color:#F47920;font-size:0.8rem;"></i> &mdash; Barrie's Trusted Painters</div>
+        <h1>Quality Painting, <span>Exceptional Results</span></h1>
+        <p>Transform your home with Barrie's top-rated painting company. From exterior makeovers to interior perfection, we deliver craftsmanship that lasts.</p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary"><i class="fa-solid fa-calculator"></i> Get a Free Estimate</a>
+            <a href="#services" class="btn btn-outline"><i class="fa-solid fa-arrow-down"></i> Our Services</a>
         </div>
-
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-cubes"></i></div>
-          <h3>Drywall Repairs</h3>
-          <p>Expert drywall patching, crack repair, and full drywall installation. Seamless finishes ready for paint — from small holes to full wall replacements.</p>
+        <div class="scroll-indicator">
+            <i class="fa-solid fa-chevron-down"></i>
         </div>
+    </header>
 
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-building"></i></div>
-          <h3>Popcorn Ceiling Removal</h3>
-          <p>Modernize your ceilings. We safely remove outdated popcorn texture and deliver a smooth, fresh finish that transforms any room.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-cubes"></i></div>
-          <h3>Brick Painting</h3>
-          <p>Give your brick exterior or interior a stunning new look. Properly prepped, primed, and painted with products designed for masonry surfaces.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-bath"></i></div>
-          <h3>Bathroom Painting</h3>
-          <p>Bathrooms demand moisture-resistant finishes. We use mildew-resistant paints and proper prep to ensure your bathroom looks fresh for years.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon"><i class="fa-solid fa-arrow-up"></i></div>
-          <h3>Ceiling Painting</h3>
-          <p>Flawless ceiling painting that brightens your entire space. From flat whites to accent colours — we cover every square inch with precision.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== ABOUT ==================== -->
-  <section id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text">
-          <h2>Proudly <span>Local</span> in Barrie</h2>
-          <p>Wagg's Painting is a locally owned and operated painting company based at <strong>33 River Ridge Rd, Barrie, Ontario</strong>. We take pride in being part of the Barrie community and serving homeowners and businesses throughout Simcoe County.</p>
-          <p>With a relentless commitment to quality, we treat every project — big or small — with the same care and attention to detail. No shortcuts, no compromises. Just exceptional results backed by our 5-star reputation.</p>
-          <div class="about-highlights">
-            <div class="highlight-item">
-              <div class="num">5★</div>
-              <div class="label">YellowPages rating — trusted by your neighbours across Barrie</div>
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1589939705384-5185133a7f0f?w=600&q=80" alt="Professional painter at work" loading="lazy">
+                    <div class="badge-overlay">
+                        <i class="fa-solid fa-star"></i> 5.0 Rating
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h2>Barrie's <span>Trusted</span> Painters</h2>
+                    <p>Wagg's Painting has been serving Barrie and the surrounding communities with premium painting services backed by a consistent 5-star reputation. We take pride in every project &mdash; big or small &mdash; treating each home with the care and attention it deserves.</p>
+                    <p>We are a fully insured, locally owned painting company committed to quality workmanship, punctuality, and clear communication from the first estimate to the final walkthrough. Our team of experienced painters uses only premium paints and materials to deliver results that look beautiful and stand the test of time.</p>
+                    <div class="about-highlights">
+                        <div class="highlight"><i class="fa-solid fa-circle-check"></i> Fully Licensed &amp; Insured</div>
+                        <div class="highlight"><i class="fa-solid fa-circle-check"></i> 5-Star Rated on All Platforms</div>
+                        <div class="highlight"><i class="fa-solid fa-circle-check"></i> Premium Paints &amp; Materials</div>
+                        <div class="highlight"><i class="fa-solid fa-circle-check"></i> Satisfaction Guaranteed</div>
+                    </div>
+                </div>
             </div>
-            <div class="highlight-item">
-              <div class="num">SC</div>
-              <div class="label">Serving all of Simcoe County — Barrie, Innisfil, Orillia &amp; beyond</div>
-            </div>
-            <div class="highlight-item">
-              <div class="num">100%</div>
-              <div class="label">Satisfaction guaranteed on every project — interior &amp; exterior</div>
-            </div>
-            <div class="highlight-item">
-              <div class="num"><i class="fa-solid fa-house"></i></div>
-              <div class="label">Residential &amp; commercial painting specialists</div>
-            </div>
-          </div>
         </div>
-        <div class="about-image">
-          <div class="overlay-text">BARRIE, ON</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== REVIEWS ==================== -->
-  <section id="reviews">
-    <div class="container">
-      <h2>What Our <span>Clients Say</span></h2>
-      <div class="reviews-badge">
-        <span class="big-stars">★★★★★</span>
-        <span class="score">5.0</span>
-      </div>
-      <p class="reviews-source">Rating on YellowPages &bull; Barrie, ON</p>
-      <br>
-
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="quote-mark">&#8220;</div>
-          <div class="stars-row">★★★★★</div>
-          <p class="quote">Wagg's Painting did an incredible job on our exterior. The crew was professional, on time, and the attention to detail was outstanding. Our home looks brand new. Highly recommend!</p>
-          <div class="author">Sarah M.</div>
-          <div class="author-location">Barrie, ON</div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="quote-mark">&#8220;</div>
-          <div class="stars-row">★★★★★</div>
-          <p class="quote">We had our popcorn ceilings removed and the whole main floor painted. Flawless work — smooth ceilings, clean lines, and not a drop of paint where it shouldn't be. True professionals.</p>
-          <div class="author">Dave &amp; Lisa R.</div>
-          <div class="author-location">Innisfil, ON</div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="quote-mark">&#8220;</div>
-          <div class="stars-row">★★★★★</div>
-          <p class="quote">Our brick fireplace was looking dated — Wagg's painted it and it's stunning now. They also repainted our bathroom and it's never looked better. Fair pricing, great people.</p>
-          <div class="author">Mike T.</div>
-          <div class="author-location">Orillia, ON</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== CONTACT ==================== -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h2>Get in <span>Touch</span></h2>
-          <p style="color:var(--gray-light); margin-bottom:2rem;">Ready to transform your home? Reach out for a free, no-obligation estimate. We serve Barrie and all of Simcoe County.</p>
-
-          <ul class="contact-details">
-            <li>
-              <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
-              <div>
-                <strong>Address</strong>
-                33 River Ridge Rd<br>Barrie, ON L4N 7G2
-              </div>
-            </li>
-            <li>
-              <span class="icon"><i class="fa-solid fa-phone"></i></span>
-              <div>
-                <strong>Phone</strong>
-                <a href="tel:+17051234567">(705) 123-4567</a>
-              </div>
-            </li>
-            <li>
-              <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-              <div>
-                <strong>Email</strong>
-                <a href="mailto:info@waggspainting.ca">info@waggspainting.ca</a>
-              </div>
-            </li>
-            <li>
-              <span class="icon"><i class="fa-solid fa-clock"></i></span>
-              <div>
-                <strong>Hours</strong>
-                Mon–Fri: 7:00 AM – 6:00 PM<br>Sat: 8:00 AM – 4:00 PM
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="contact-form">
-          <h3>Request a <span style="color:var(--orange);">Free Estimate</span></h3>
-          <form id="estimateForm" onsubmit="handleSubmit(event)">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Full Name *</label>
-                <input type="text" id="name" name="name" required placeholder="Your name">
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone *</label>
-                <input type="tel" id="phone" name="phone" required placeholder="(705) 555-0000">
-              </div>
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span>Services</span></h2>
+                <p>Complete painting solutions for your entire home, delivered with precision and care.</p>
             </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="you@example.com">
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027f28d?w=600&q=80" alt="Exterior house painting" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <i class="fa-solid fa-house"></i>
+                        <h3>Exterior Painting</h3>
+                        <p>Boost curb appeal and protect your home from the elements with professional exterior painting. We handle siding, trim, soffits, doors, and more.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1562259929-4b16ad9ef51e?w=600&q=80" alt="Interior painting project" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <i class="fa-solid fa-paint-roller"></i>
+                        <h3>Interior Painting</h3>
+                        <p>Transform your living spaces with flawless interior painting. Walls, ceilings, trim, and doors &mdash; we handle every detail with meticulous care.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=600&q=80" alt="Drywall repair work" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <i class="fa-solid fa-hammer"></i>
+                        <h3>Drywall Repairs</h3>
+                        <p>From small holes to larger damage, we repair and restore your drywall to a smooth, paint-ready finish. Seamless results every time.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1562259949-4e073a56b3b2?w=600&q=80" alt="Ceiling work" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <i class="fa-solid fa-arrows-up-down"></i>
+                        <h3>Popcorn Ceiling Removal</h3>
+                        <p>Say goodbye to outdated popcorn ceilings. We safely remove textured ceilings and deliver a smooth, modern finish that updates your entire room.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=600&q=80" alt="Brick painting" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <i class="fa-solid fa-border-all"></i>
+                        <h3>Brick Painting</h3>
+                        <p>Give your brick exterior or fireplace a fresh new look. We use specialized masonry paints for a durable, beautiful finish on brick surfaces.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80" alt="Bathroom painting" class="service-card-img" loading="lazy">
+                    <div class="service-card-body">
+                        <i class="fa-solid fa-bath"></i>
+                        <h3>Bathroom Painting</h3>
+                        <p>Bathrooms need moisture-resistant solutions. We use the right primers and paints to ensure your bathroom stays fresh and mold-free for years.</p>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="service">Service Interested In</label>
-              <select id="service" name="service">
-                <option value="">Select a service…</option>
-                <option value="exterior">Exterior Painting</option>
-                <option value="drywall">Drywall Repairs</option>
-                <option value="popcorn">Popcorn Ceiling Removal</option>
-                <option value="brick">Brick Painting</option>
-                <option value="bathroom">Bathroom Painting</option>
-                <option value="ceiling">Ceiling Painting</option>
-                <option value="other">Other / Multiple</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Tell Us About Your Project *</label>
-              <textarea id="message" name="message" required placeholder="Briefly describe what you need painted, repaired, or removed…"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Estimate Request</button>
-            <p id="formFeedback" style="margin-top:1rem; font-size:0.85rem; display:none;"></p>
-          </form>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>Wagg's Painting</h4>
-        <p>Transforming homes across Barrie and Simcoe County — one brush at a time. Proudly local, consistently 5-star rated.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="#services">Exterior Painting</a>
-        <a href="#services">Drywall Repairs</a>
-        <a href="#services">Popcorn Ceiling Removal</a>
-        <a href="#services">Brick Painting</a>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <p>33 River Ridge Rd<br>Barrie, ON L4N 7G2</p>
-        <a href="tel:+17051234567">(705) 123-4567</a>
-        <a href="mailto:info@waggspainting.ca">info@waggspainting.ca</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      &copy; 2026 <span class="accent">Wagg's Painting</span>. All rights reserved. | Barrie, Ontario
-    </div>
-  </footer>
+    <!-- REVIEWS -->
+    <section id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our <span>Customers Say</span></h2>
+                <p>Real reviews from real homeowners in Barrie and the surrounding area.</p>
+            </div>
+            <div class="reviews-summary">
+                <div class="big-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <div class="rating-number">5.0</div>
+                <div class="rating-label">Average Rating Across 100+ Reviews</div>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Wagg's Painting transformed our tired 90s exterior into a modern showpiece. The crew was professional, on time every day, and the attention to detail was incredible. Could not be happier!"</p>
+                    <div class="review-author">Mike &amp; Diane R. <span>&mdash; Barrie, ON</span></div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"They removed our popcorn ceilings and repainted the entire main floor. The house feels brand new. Very clean work, no mess left behind, and the price was fair. Highly recommend!"</p>
+                    <div class="review-author">Sarah K. <span>&mdash; Innisfil, ON</span></div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"Third time using Wagg's for different projects and they never disappoint. Bathroom painting, then the living room, and now our brick fireplace. Consistent quality every single time."</p>
+                    <div class="review-author">James T. <span>&mdash; Barrie, ON</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- ==================== SCRIPTS ==================== -->
-  <script>
-    // Mobile nav toggle
-    function toggleNav() {
-      document.getElementById('navLinks').classList.toggle('mobile-open');
-    }
-    function closeNav() {
-      document.getElementById('navLinks').classList.remove('mobile-open');
-    }
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Get a <span>Free Estimate</span></h2>
+                    <p>Ready to refresh your home? Contact us today for a no-obligation quote. We respond promptly and are happy to answer any questions.</p>
+                    <div class="contact-detail">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <div class="label">Phone</div>
+                            <div class="value">(705) 794-0345</div>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <div class="label">Address</div>
+                            <div class="value">33 River Ridge Rd, Barrie ON L4N 7G2</div>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <div class="label">Hours</div>
+                            <div class="value">Mon &ndash; Fri: 7 AM &ndash; 6 PM<br>Sat: 8 AM &ndash; 4 PM</div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <h3>Request a Quote</h3>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(705) 555-0000">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">Service Needed</label>
+                        <select id="interest" name="interest">
+                            <option value="">Select a service...</option>
+                            <option value="exterior">Exterior Painting</option>
+                            <option value="interior">Interior Painting</option>
+                            <option value="drywall">Drywall Repairs</option>
+                            <option value="popcorn">Popcorn Ceiling Removal</option>
+                            <option value="brick">Brick Painting</option>
+                            <option value="bathroom">Bathroom Painting</option>
+                            <option value="other">Other / Multiple Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" placeholder="Describe your project, rooms, square footage, etc..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">
+                        <i class="fa-solid fa-paper-plane"></i>&nbsp; Send Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-    // Smooth scroll for nav links (fallback)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+        </div>
+        <p>&copy; 2026 Wagg's Painting. All rights reserved. | 33 River Ridge Rd, Barrie, ON L4N 7G2</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu toggle
+        function toggleNav() {
+            document.getElementById('navLinks').classList.toggle('active');
         }
-      });
-    });
 
-    // Contact form handler (demo — no backend)
-    function handleSubmit(e) {
-      e.preventDefault();
-      const feedback = document.getElementById('formFeedback');
-      feedback.style.display = 'block';
-      feedback.style.color = 'var(--orange)';
-      feedback.textContent = '<i class="fa-solid fa-check"></i> Thanks! This is a demo form — we\'ll be in touch shortly.';
-      e.target.reset();
-      setTimeout(() => { feedback.style.display = 'none'; }, 5000);
-    }
-
-    // Active nav link highlight on scroll
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-      let scrollY = window.scrollY + 120;
-      sections.forEach(sec => {
-        const link = document.querySelector(`.nav-links a[href="#${sec.id}"]`);
-        if (!link) return;
-        if (sec.offsetTop <= scrollY && sec.offsetTop + sec.offsetHeight > scrollY) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
+        function closeNav() {
+            document.getElementById('navLinks').classList.remove('active');
         }
-      });
-    });
-  </script>
 
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('.form-submit');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>&nbsp; Sending...';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fa-solid fa-check"></i>&nbsp; Request Sent!';
+                btn.style.background = '#22c55e';
+                e.target.reset();
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 3000);
+            }, 1500);
+        }
+    </script>
 </body>
 </html>
